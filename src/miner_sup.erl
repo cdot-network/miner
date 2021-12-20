@@ -66,6 +66,12 @@ init(_Args) ->
                sig_fun := SigFun
              } = miner_keys:keys({ecc, Props}),
             ECCWorker = [?WORKER(miner_ecc_worker, [KeySlot, Bus, Address])];
+        tee ->
+            #{ pubkey := PublicKey,
+               ecdh_fun := ECDHFun,
+               sig_fun := SigFun
+             } = miner_keys:keys(tee),
+            ECCWorker = [?WORKER(miner_tee_worker, [])];
         {PublicKey, ECDHFun, SigFun} ->
             ECCWorker = [],
             ok

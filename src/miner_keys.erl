@@ -118,7 +118,9 @@ keys({ecc, Props}) when is_list(Props) ->
                           Sig
                   end,
        onboarding_key => libp2p_crypto:pubkey_to_b58(OnboardingKey)
-     }.
+     };
+keys(tee) ->
+    miner_tee_keys:keys().
 
 -spec key_config() -> key_configuration().
 key_config() ->
