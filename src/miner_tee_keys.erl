@@ -21,6 +21,9 @@ keys() ->
                 %% Key not present, this slot is (assumed to be) empty so use the public key
                 %% as the onboarding key
                 {ok, PubKey};
+            {error, not_implemented} ->
+                %% onboarding_key is not implemented
+                {ok, PubKey};
             Other -> Other
         end,
     case whereis(miner_tee_worker) of
