@@ -38,8 +38,10 @@ steps:
       BUILD_TYPE: "validator"
       IMAGE_ARCH: "amd64"
       REGISTRY_HOST: "quay.io"
+      REGISTRY_ORG: "team-helium"
       REGISTRY_NAME: "validator"
       VERSION_TAG: $BUILDKITE_TAG
+      BUILD_NET: "mainnet"
     agents:
       queue: "erlang"
     commands:
@@ -52,8 +54,10 @@ steps:
       BUILD_TYPE: "validator"
       IMAGE_ARCH: "arm64"
       REGISTRY_HOST: "quay.io"
+      REGISTRY_ORG: "team-helium"
       REGISTRY_NAME: "validator"
       VERSION_TAG: $BUILDKITE_TAG
+      BUILD_NET: "mainnet"
     agents:
       queue: "arm64"
     commands:
@@ -66,8 +70,10 @@ steps:
       BUILD_TYPE: "val"
       IMAGE_ARCH: "amd64"
       REGISTRY_HOST: "quay.io"
+      REGISTRY_ORG: "team-helium"
       REGISTRY_NAME: "validator"
       VERSION_TAG: $BUILDKITE_TAG
+      BUILD_NET: "testnet"
     agents:
       queue: "erlang"
     commands:
@@ -80,8 +86,10 @@ steps:
       BUILD_TYPE: "val"
       IMAGE_ARCH: "arm64"
       REGISTRY_HOST: "quay.io"
+      REGISTRY_ORG: "team-helium"
       REGISTRY_NAME: "validator"
       VERSION_TAG: $BUILDKITE_TAG
+      BUILD_NET: "testnet"
     agents:
       queue: "arm64"
     commands:
@@ -94,8 +102,10 @@ steps:
       BUILD_TYPE: "miner"
       IMAGE_ARCH: "amd64"
       REGISTRY_HOST: "quay.io"
+      REGISTRY_ORG: "team-helium"
       REGISTRY_NAME: "miner"
       VERSION_TAG: $BUILDKITE_TAG
+      BUILD_NET: "mainnet"
     agents:
       queue: "erlang"
     commands:
@@ -110,8 +120,10 @@ steps:
       BUILD_TYPE: "miner"
       IMAGE_ARCH: "arm64"
       REGISTRY_HOST: "quay.io"
+      REGISTRY_ORG: "team-helium"
       REGISTRY_NAME: "miner"
       VERSION_TAG: $BUILDKITE_TAG
+      BUILD_NET: "mainnet"
     commands:
       - "git tag $BUILDKITE_TAG"
       - ".buildkite/scripts/make_image.sh"
