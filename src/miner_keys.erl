@@ -172,7 +172,6 @@ keys({ecc, Options}) when is_list(Options) ->
                 _ ->
                     ok
             end,
-
             #{
                 pubkey => PubKey,
                 key_slot => KeySlot,
@@ -191,6 +190,8 @@ keys({ecc, Options}) when is_list(Options) ->
                 onboarding_key => libp2p_crypto:pubkey_to_b58(OnboardingKey)
             }
     end;
+keys(tee) ->
+    miner_tee_keys:keys();
 keys(#{pubkey := _PubKey, ecdh_fun := _ECDH, sig_fun := _Sig} = KeyInfo) ->
     maps:merge(#{key_slot => undefined, bus => undefined, address => undefined}, KeyInfo).
 
